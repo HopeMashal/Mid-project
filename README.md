@@ -19,7 +19,7 @@ A react project where I built a Sudoku game.
 
 - ## Initial Layout
   - Home page
-    ![Home Page](/readme-images/image-1.png)
+    ![Home Page](https://github.com/HopeMashal/Mid-project/blob/master/readme-images/image-1.PNG)
   - Log in
     ![Login Page](/readme-images/image-2.png)
   - Profile page
