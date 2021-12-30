@@ -1,14 +1,14 @@
-# Sudoku Game
+# **Sudoku Game**
 - ## Project Idea
 A react project where I built a Sudoku game. 
 
-*Website like:*
+*Website link:*
 **https://sudoku-game-hope.netlify.app/**
 
 ***
 
 - ## Features
-  - Pages
+  - **Pages**
     - Home page
     - Log in
     - Profile page
@@ -17,7 +17,15 @@ A react project where I built a Sudoku game.
 
 ***
 
-- ## Plans
+- ## Initial Layout
+  - Home page
+    
+  - Log in
 
+  - Profile page
+
+  - Results page
+
+  - Sudoku game
 
 
