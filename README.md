@@ -2,13 +2,13 @@
 - ## Project Idea
 A react project where I built a Sudoku game. 
 
-*Website link:*
+> *Website link:*
 **https://sudoku-game-hope.netlify.app/**
 
 ***
 
 - ## Features
-  - **Pages**
+  > **Pages**
     - Home page
     - Log in
     - Profile page
@@ -21,11 +21,11 @@ A react project where I built a Sudoku game.
   - Home page
     ![Home Page](https://github.com/HopeMashal/Mid-project/blob/master/readme-images/image-1.PNG)
   - Log in
-    ![Login Page](/readme-images/image-2.png)
+    ![Login Page](https://github.com/HopeMashal/Mid-project/blob/master/readme-images/image-2.PNG)
   - Profile page
-    ![Profile Page](/readme-images/image-3.png)
+    ![Profile Page](https://github.com/HopeMashal/Mid-project/blob/master/readme-images/image-3.PNG)
   - Results page
-    ![Results Page](/readme-images/image-4.png)
+    ![Results Page](https://github.com/HopeMashal/Mid-project/blob/master/readme-images/image-4.PNG)
   - Sudoku game
-    ![Sudoku Game Page](/readme-images/image-5.png)
+    ![Sudoku Game Page](https://github.com/HopeMashal/Mid-project/blob/master/readme-images/image-5.PNG)
 
