@@ -1,3 +1,55 @@
+.Header{
+  height: 70px;
+  width: 100vw;
+  background-color: rgb(147, 255, 219);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 21px;
+}
+.logo{
+  height: 50px;
+}
+ul li{
+  display: block;
+  float:left;
+}
+.nav-link{
+  padding:16px 16px;
+  text-decoration:none;
+  font-family: 'Algerian';
+  color:black;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+} 
+.nav-link:before, .nav-link:after{
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  transition: all .5s ease-in-out;
+  opacity: 0;
+}  
+.nav-link:before{
+  top: 0px;
+  transition: all ease-in-out 250ms;
+}  
+.nav-link:after{
+  right: 0px;
+  bottom: 0px;
+  transition: all ease-in-out 250ms;  
+}
+.nav-link:hover:before{
+  width: 83%;
+  opacity: 10;
+}   
+.nav-link:hover:after{
+  width: 83%;
+  opacity: 10;
+}
 input[type=checkbox]{
   display: none;
 } 
@@ -11,11 +63,12 @@ input[type=checkbox]{
   .menu { 
     display:none;
     position: absolute;
-    background-color:white;
+    background-color:rgb(147, 255, 219);
     right: 0;
     left: 0;
     text-align: center;
     padding: 16px 0;
+    margin-top: 20px;
   }
   .menu li + li {
     margin-top: 20px;
@@ -26,8 +79,6 @@ input[type=checkbox]{
   }
   .check-menu {
     display: block;
-    color:var(--check-menu-color);
-    margin-bottom: 20px;
   }  
   input[type=checkbox]:checked ~ label[for="checkbox_toggle"]{
     visibility: hidden;
@@ -35,8 +86,5 @@ input[type=checkbox]{
   input[type=checkbox]:checked ~ label[for="checkbox_toggle"]:after{
     visibility: visible;
     content:'\2613';
-  }
-  li:active ~ .menu{
-    display: none;
   }
 }

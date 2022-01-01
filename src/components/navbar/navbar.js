@@ -1,9 +1,17 @@
-import React,{useState,useEffect,useRef} from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import './navbar.css';
 
 const Header=({user})=>{
+  const [open, setOpen] = useState(false);
+	const handleClick = () => {
+		setOpen(!open);
+	};
+	const closeMenu = () => {
+		setOpen(false);
+    document.querySelector('#checkbox_toggle').checked=open;
+	};
 
   return(
     <div className="Header">
@@ -13,26 +21,26 @@ const Header=({user})=>{
       {
         user?(
           <ul>
-            <input type="checkbox" id="checkbox_toggle" />
+            <input type="checkbox" id="checkbox_toggle" onClick={handleClick}/>
             <label htmlFor="checkbox_toggle" className="check-menu">&#9776;</label>
-            <div className="menu">
+            <div className='menu'>
               <li>
-                <Link className="link" to="/profile">
+                <Link className="nav-link" to="/profile" onClick={closeMenu}>
                   Profile
                 </Link>
               </li>
               <li>
-                <Link className="link" to="/game">
+                <Link className="nav-link" to="/game" onClick={closeMenu}>
                   Game
                 </Link>
               </li>
               <li>
-                <Link className="link" to="/results">
+                <Link className="nav-link" to="/results" onClick={closeMenu}>
                   Results
                 </Link>
               </li>
               <li>
-                <span className="link">
+                <span className="nav-link" onClick={closeMenu}>
                   Logout
                 </span>
               </li>
@@ -40,7 +48,7 @@ const Header=({user})=>{
           </ul>
         ):(
           <div className="right-nav">
-            <Link className="link" to="/login">
+            <Link className="nav-link" to="/login">
               Login
             </Link>
           </div>
