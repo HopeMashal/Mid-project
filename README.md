@@ -45,6 +45,7 @@ The focus point in my project is to give beginners an opportunity to learn Sudok
   > **In general**
     - Mockapi
     - CRUD
+    - Responsive Web Design
 
 ***
 

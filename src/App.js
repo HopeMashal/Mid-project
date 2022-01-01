@@ -10,11 +10,6 @@ import ResultsPage from './pages/Results page/results';
 import GamePage from './pages/Game page/game';
 
 function App() {
-  /* const [user, setUser] = useState(null);
-  useEffect(()=>{
-    console.log('Hello');
-    setUser(false);
-  }) */
   const user=false;
   return (
     <div>

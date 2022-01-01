@@ -1,0 +1,32 @@
+.Login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 85vh;
+}
+h1{
+  color:rgb(24, 124, 94);
+}
+.facebook-button{
+  background-color: #5189dd;
+  width:180px;
+  height: 45px;
+  padding: 5px;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.facebook-button:hover{
+  background-color: #3f6fb8;
+}
+.fa-facebook{
+  margin-right: 10px;
+}
+.login-method{
+  height: 30vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
