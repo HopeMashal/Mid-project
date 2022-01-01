@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import {HashRouter,Route} from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { /* useEffect, */ useState } from "react";
 import Header from './components/navbar/navbar';
 import HomePage from './pages/Home page/home';
 import Login from './pages/Login page/login';
@@ -11,10 +11,11 @@ import GamePage from './pages/Game page/game';
 
 function App() {
   const [user, setUser] = useState(null);
-  useEffect(()=>{
+  setUser(false);
+  /* useEffect(()=>{
     console.log('Hello');
     setUser(false);
-  })
+  }) */
   return (
     <div>
       <HashRouter>

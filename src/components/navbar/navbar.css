@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Algerian';
+  src: url('../../assets/fonts/algerian.ttf');
+  font-weight: bold;
+}
 .Header{
   height: 70px;
   width: 100vw;
