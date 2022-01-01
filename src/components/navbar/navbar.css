@@ -1,0 +1,42 @@
+input[type=checkbox]{
+  display: none;
+} 
+.check-menu {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .menu { 
+    display:none;
+    position: absolute;
+    background-color:white;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+  .menu li + li {
+    margin-top: 20px;
+  }
+  input[type=checkbox]:checked ~ .menu{
+    display: flex;
+    flex-direction: column;
+  }
+  .check-menu {
+    display: block;
+    color:var(--check-menu-color);
+    margin-bottom: 20px;
+  }  
+  input[type=checkbox]:checked ~ label[for="checkbox_toggle"]{
+    visibility: hidden;
+  }
+  input[type=checkbox]:checked ~ label[for="checkbox_toggle"]:after{
+    visibility: visible;
+    content:'\2613';
+  }
+  li:active ~ .menu{
+    display: none;
+  }
+}
