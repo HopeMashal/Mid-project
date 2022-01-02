@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Algerian';
+  src: url('../../assets/fonts/algerian.ttf');
+  font-weight: bold;
+}
+.ResultsPage{
+  padding-bottom: 10px;
+}
+.card-container{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+h1{
+  text-align: center;
+  font-family: 'Algerian';
+}

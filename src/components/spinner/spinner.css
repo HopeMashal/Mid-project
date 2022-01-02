@@ -1,0 +1,43 @@
+.spinner {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.spinner-1,
+.spinner-2,
+.spinner-3 {
+  height: 15px;
+  width: 15px;
+  background: turquoise;
+  border-radius: 50%;
+  animation: circle-bounce 1s linear infinite;
+}
+
+.spinner-2 {
+  animation-delay: 0.25s;
+}
+.spinner-3 {
+  animation-delay: 0.5s;
+}
+
+@keyframes circle-bounce {
+  0% {
+    transform: initial;
+  }
+  
+  30% {
+    transform: translateY(-15px);
+  }
+ 60%
+   {
+    transform: initial;
+  }
+}
+.container-spinner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}

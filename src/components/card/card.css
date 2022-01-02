@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Verdana';
+  src: url('../../assets/fonts/verdana.ttf');
+  font-weight: bold;
+}
+.card{
+  background: linear-gradient(rgba(235, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  width:30vw;
+  height: fit-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+h2,h3,p{
+  text-align: center;
+  font-family: 'Verdana';
+}
+.profile-image img{
+  width:25vw;
+  height: 25vw;
+  border: none;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 500px) {
+  .card{
+    width:90vw;
+    padding: 5vw;
+  }
+  .profile-image img{
+    width:80vw;
+    height: 80vw;
+  }
+}

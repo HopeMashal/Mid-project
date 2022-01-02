@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Algerian';
+  src: url('../../assets/fonts/algerian.ttf');
+  font-weight: bold;
+}
+.ProfilePage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  flex-direction: column;
+}
+h1{
+  text-align: center;
+  font-family: 'Algerian';
+}

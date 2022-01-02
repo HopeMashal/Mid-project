@@ -1,11 +1,25 @@
-import React from "react";
+import React from 'react';
+import Card from '../../components/card/card';
+import './profile.css'
 
-const ProfilePage=()=>{
-  return(
+export default function ProfilePage({
+  userDetails: { name, avatar,Completed, Uncompleted,createdAt },
+}) {
+  return (
     <div className="ProfilePage">
-      Profile Page
+      <h1>
+        Welcome {avatar ? 'Back:' : null}
+        {name}
+      </h1>
+      <div>
+        <Card
+          name={name}
+          avatar={avatar}
+          createdAt={createdAt}
+          Completed={Completed}
+          Uncompleted={Uncompleted}
+        />
+      </div>
     </div>
-  )
+  );
 }
-
-export default ProfilePage;

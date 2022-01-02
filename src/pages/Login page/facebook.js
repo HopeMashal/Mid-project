@@ -2,9 +2,10 @@ import React from "react";
 import FacebookLogin from 'react-facebook-login';
 import './login.css'
 
-const Facebook=()=>{
+const Facebook=({setUser,setUserDetails})=>{
   const responseFacebook = (response) => {
     console.log(response);
+    setUser(true);
   }
   return(
     <div className="Login">
