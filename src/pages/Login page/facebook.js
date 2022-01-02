@@ -9,7 +9,7 @@ const Facebook=({setUser,setUserDetails})=>{
     console.log(response);
     const userid=response.userID;
     const username=response.name;
-    const userimage=response.picture.url;
+    const userimage=response.picture.data.url;
     const data = await fetchData();
     const match = data.find(
       (player) => player.userID === userid
