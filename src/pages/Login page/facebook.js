@@ -1,11 +1,50 @@
 import React from "react";
 import FacebookLogin from 'react-facebook-login';
 import './login.css'
+import fetchData from '../../api/fetchdata';
+import api from "../../api/api";
 
 const Facebook=({setUser,setUserDetails})=>{
-  const responseFacebook = (response) => {
+  const responseFacebook = async (response) => {
     console.log(response);
-    setUser(true);
+    const userid=response.userID;
+    const username=response.name;
+    const userimage=response.picture.url;
+    const data = await fetchData();
+    const match = data.find(
+      (player) => player.userID === userid
+    );
+    if (match){
+      setUser(true);
+      setUserDetails({
+        userID: match.userID,
+        name: match.name,
+        avatar: match.avatar,
+        Completed:match.Completed,
+        Uncompleted:match.Uncompleted,
+        createdAt:match.createdAt
+      });
+    } else {
+      setUser(true);
+      const current = new Date();
+      const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+      await api.post('/', {
+        userID:userid,
+        name:username,
+        avatar: userimage,
+        Completed:0,
+        Uncompleted:0,
+        createdAt:date,
+      });
+      setUserDetails({ 
+        userID:userid,
+        name:username,
+        avatar:userimage,
+        Completed:0,
+        Uncompleted:0,
+        createdAt:date,
+      });
+    }
   }
   return(
     <div className="Login">

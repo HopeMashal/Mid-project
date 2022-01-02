@@ -8,7 +8,7 @@ export default function ProfilePage({
   return (
     <div className="ProfilePage">
       <h1>
-        Welcome {avatar ? 'Back:' : null}
+        Welcome {avatar ? 'Back: ' : null}
         {name}
       </h1>
       <div>

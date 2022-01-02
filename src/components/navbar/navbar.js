@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import './navbar.css';
 
-const Header=({user})=>{
+const Header=({user,setUser})=>{
   const [open, setOpen] = useState(false);
 	const handleClick = () => {
 		setOpen(!open);
@@ -12,6 +12,13 @@ const Header=({user})=>{
 		setOpen(false);
     document.querySelector('#checkbox_toggle').checked=open;
 	};
+  const logout =() =>{
+    setUser(false);
+  }
+  const logoutBtn=()=>{
+    closeMenu();
+    logout();
+  }
 
   return(
     <div className="Header">
@@ -40,9 +47,9 @@ const Header=({user})=>{
                 </Link>
               </li>
               <li>
-                <span className="nav-link" onClick={closeMenu}>
+                <Link className="nav-link" to="/" onClick={logoutBtn}>
                   Logout
-                </span>
+                </Link>
               </li>
             </div>
           </ul>

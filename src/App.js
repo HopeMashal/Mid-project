@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" exact> 
           {
             user?(
-              <Redirect to="/" />
+              <Redirect to="/profile" />
             ):(
               <Login 
                 setUser={setUser} 
