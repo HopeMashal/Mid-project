@@ -23,7 +23,8 @@ const Google=({setUser,setUserDetails})=>{
         avatar: match.avatar,
         Completed:match.Completed,
         Uncompleted:match.Uncompleted,
-        createdAt:match.createdAt
+        createdAt:match.createdAt,
+        NOuser:'Welcome Back: '
       });
     } else {
       setUser(true);
@@ -44,6 +45,7 @@ const Google=({setUser,setUserDetails})=>{
         Completed:0,
         Uncompleted:0,
         createdAt:date,
+        NOuser:'Welcome: '
       });
     }
   };

@@ -3,13 +3,12 @@ import Card from '../../components/card/card';
 import './profile.css'
 
 export default function ProfilePage({
-  userDetails: { name, avatar,Completed, Uncompleted,createdAt },
+  userDetails: { name, avatar,Completed, Uncompleted,createdAt,NOuser },
 }) {
   return (
     <div className="ProfilePage">
       <h1>
-        Welcome {avatar ? 'Back: ' : null}
-        {name}
+        {NOuser} {name}
       </h1>
       <div>
         <Card
