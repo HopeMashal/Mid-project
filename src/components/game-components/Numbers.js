@@ -1,9 +1,6 @@
 import React from 'react';
 import { useSudokuContext } from './SudokuContext';
 
-/**
- * React component for the Number Selector in the Status Section.
- */
 export const Numbers = ({ onClickNumber }) => {
   let { numberSelected } = useSudokuContext();
 

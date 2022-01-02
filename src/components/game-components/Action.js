@@ -1,8 +1,5 @@
 import React from 'react';
 
-/**
- * Return the SVGs of the Action buttons in the Status Section.
- */
 const Svg = (props) => {
   if (props.action === 'undo') {
     return (
@@ -31,9 +28,6 @@ const Svg = (props) => {
   }
 }
 
-/**
- * React component for the Action buttons in the Status Section.
- */
 export const Action = (props) => {
   return (
     <div className={  props.action === 'undo'

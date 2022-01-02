@@ -4,9 +4,6 @@ import { Timer } from './Timer';
 import { Numbers } from './Numbers';
 import { Action } from './Action';
 
-/**
- * React component for the Status Section.
- */
 export const StatusSection = (props) => {
   return (
     <section className="status">

@@ -1,9 +1,6 @@
 import React from 'react';
 import { useSudokuContext } from './SudokuContext';
 
-/**
- * React component for the Game Section
- */
 export const GameSection = (props) => {
   const rows = [0,1,2,3,4,5,6,7,8];
   let { numberSelected,
@@ -12,44 +9,6 @@ export const GameSection = (props) => {
         cellSelected,
         initArray } = useSudokuContext();
 
-  /**
-   * Cell Highlight Method 1: Highlight all cells
-   * related to current cell. By related, I mean all
-   * cells in the same row/column/box as the current cell.
-   */
-  // eslint-disable-next-line
-  function _isCellRelatedToSelectedCell(row, column) {
-    if (cellSelected === row * 9 + column) {
-      return true;
-    }
-    let rowOfSelectedCell = Math.floor(cellSelected / 9);
-    let columnOfSelectedCell = cellSelected % 9;
-    if (rowOfSelectedCell === row || columnOfSelectedCell === column) {
-      return true;
-    }
-    return [  [0,3,0,3],
-              [0,3,3,6],
-              [0,3,6,9],
-              [3,6,0,3],
-              [3,6,3,6],
-              [3,6,6,9],
-              [6,9,0,3],
-              [6,9,3,6],
-              [6,9,6,9]
-            ].some((array) => {
-              if (rowOfSelectedCell > array[0]-1 && row > array[0]-1 &&
-                  rowOfSelectedCell < array[1] && row < array[1] &&
-                  columnOfSelectedCell > array[2]-1 && column > array[2]-1 &&
-                  columnOfSelectedCell < array[3] && column < array[3])
-                  return true;
-              return false;
-            });
-  }
-
-  /**
-   * Cell Highlight Method 2: Highlight all cells with
-   * the same number as in the current cell.
-   */
   function _isCellSameAsSelectedCell(row, column) {
     if (fastMode) {
       if (numberSelected === gameArray[row * 9 + column]) {
@@ -69,9 +28,6 @@ export const GameSection = (props) => {
     }
   }
 
-  /**
-   * Returns the classes for a cell related to the selected cell.
-   */
   function _selectedCell(indexOfArray, value, highlight) {
     if (value !== '0') {
       if (initArray[indexOfArray] === '0') {
@@ -90,9 +46,7 @@ export const GameSection = (props) => {
     }
   }
 
-  /**
-   * Returns the classes or a cell not related to the selected cell.
-   */
+
   function _unselectedCell(indexOfArray, value) {
     if (value !== '0') {
       if (initArray[indexOfArray] === '0') {
