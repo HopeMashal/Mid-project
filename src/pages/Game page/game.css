@@ -174,11 +174,11 @@
 
  .NewGameBtn{
   width: 100%;
-  height: 10vh;
+  height: 40px;
   cursor: pointer;
   background-color: var(--color-orange);
   border-radius: 10px;
-  font-size: 4vh;
+  font-size: 30px;
   }
  
  .status__action-undo,
@@ -346,8 +346,8 @@
    }
    .NewGameBtn{
     width: 45%;
-    height: 5vh;
-    font-size: 3vh;
+    height: 30px;
+    font-size: 20px;
     }
  }
  
@@ -379,8 +379,8 @@
    }
    .NewGameBtn{
     width: 100%;
-    height: 5vh;
-    font-size: 3vh;
+    height: 30px;
+    font-size: 20px;
     }
    .overlay__text {
      font-size: 40px;
