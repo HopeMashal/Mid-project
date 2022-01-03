@@ -13,11 +13,10 @@ export const Game = ({userDetails,setUserDetails}) => {
         gameArray, setGameArray,
         difficulty, setDifficulty,
         setTimeGameStarted,
-        fastMode, setFastMode,
+        fastMode,
         cellSelected, setCellSelected,
         initArray, setInitArray,
         setWon } = useSudokuContext();
-  let [ mistakesMode, setMistakesMode ] = useState(false);
   let [ history, setHistory ] = useState([]);
   let [ solvedArray, setSolvedArray ] = useState([]);
   let [ overlay, setOverlay ] = useState(false);
@@ -92,13 +91,7 @@ export const Game = ({userDetails,setUserDetails}) => {
   }
 
   function _userFillCell(index, value) {
-    if (mistakesMode) {
-      if (value === solvedArray[index]) {
-        _fillCell(index, value);
-      }
-    } else {
       _fillCell(index, value);
-    }
   }
 
   function onClickNewGame() {
@@ -120,9 +113,7 @@ export const Game = ({userDetails,setUserDetails}) => {
   function onClickNumber(number) {
     if (fastMode) {
       setNumberSelected(number)
-    } else if (cellSelected !== -1) {
-      _userFillCell(cellSelected,number);
-    }
+    } 
   }
 
   function onClickUndo() {
@@ -147,21 +138,8 @@ export const Game = ({userDetails,setUserDetails}) => {
     }
   }
 
-  function  onClickMistakesMode() {
-    setMistakesMode(!mistakesMode);
-  }
-
-  function onClickFastMode() {
-    if (fastMode) {
-      setNumberSelected('0');
-    }
-    setCellSelected(-1);
-    setFastMode(!fastMode);
-  }
-
   function onClickOverlay() {
     setOverlay(false);
-    _createNewGame();
   }
 
   useEffect(() => {
@@ -182,8 +160,6 @@ export const Game = ({userDetails,setUserDetails}) => {
             onClickUndo={onClickUndo}
             onClickErase={onClickErase}
             onClickHint={onClickHint}
-            onClickMistakesMode={onClickMistakesMode}
-            onClickFastMode={onClickFastMode}
             onClickNewGame={onClickNewGame}
           />
         </div>

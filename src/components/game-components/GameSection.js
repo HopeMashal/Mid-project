@@ -15,17 +15,7 @@ export const GameSection = (props) => {
         return true;
       }
       return false;
-    } else {
-      if (cellSelected === row * 9 + column) {
-        return true;
-      }
-      if (gameArray[cellSelected] === '0') {
-        return false;
-      }
-      if (gameArray[cellSelected] === gameArray[row * 9 + column]) {
-        return true;
-      }
-    }
+    } 
   }
 
   function _selectedCell(indexOfArray, value, highlight) {

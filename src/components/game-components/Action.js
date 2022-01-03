@@ -1,5 +1,6 @@
 import React from 'react';
 
+//create a undo and erase and hint icons using svg
 const Svg = (props) => {
   if (props.action === 'undo') {
     return (
@@ -28,6 +29,7 @@ const Svg = (props) => {
   }
 }
 
+//React Components Action Button (undo,hint,erse)
 export const Action = (props) => {
   return (
     <div className={  props.action === 'undo'
