@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSudokuContext } from './SudokuContext';
 import moment from 'moment';
 
+//Set Timer Component
 export const Timer = () => {
   let [currentTime, setCurrentTime] = useState(moment());
   let { timeGameStarted, won } = useSudokuContext();
@@ -33,7 +34,7 @@ export const Timer = () => {
   }
 
   return (
-    <div className="status__time">{getTimer()}
+    <div className="timer">{getTimer()}
     </div>
   )
 }

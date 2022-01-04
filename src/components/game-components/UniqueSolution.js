@@ -48,17 +48,13 @@ import { getSudoku } from './SudokuSolution';
  function _generateUniqueSudoku(solvedArray, difficulty, e) {
    let currentDifficulty = difficulty;
    let minimumCells, maximumCells, totalCells, box, cell;
- 
    let tempInitArray = nullArray.slice();
    let boxCounts = [ 0,0,0,
                      0,0,0,
                      0,0,0 ];
    let boxesAvailable = [];
    let cellsAvailable = [];
- 
-   if (e)
-     currentDifficulty = e.target.value;
- 
+   if (e) currentDifficulty = e.target.value;
    if (currentDifficulty === 'Easy') {
      minimumCells = 3;
      maximumCells = 7;
@@ -74,7 +70,6 @@ import { getSudoku } from './SudokuSolution';
      maximumCells = 5;
      totalCells = 30;
    }
- 
    for (let j = 0; j < 9; j++) {
      boxCounts[j] =  _cellAvailable(tempInitArray, j, 0) +
                      _cellAvailable(tempInitArray, j, 1) +
@@ -86,7 +81,6 @@ import { getSudoku } from './SudokuSolution';
                      _cellAvailable(tempInitArray, j, 7) +
                      _cellAvailable(tempInitArray, j, 8);
    }
- 
    for (let i = 0; i < totalCells; i++) {
      boxesAvailable = [];
      for (let j = 0; j < 9; j++) {
@@ -102,7 +96,6 @@ import { getSudoku } from './SudokuSolution';
        }
      }
      box = boxesAvailable[Math.random() * boxesAvailable.length | 0];
- 
      cellsAvailable = [];
      for (let j = 0; j < 9; j++) {
        if ( tempInitArray[_getIndexOfCell(box, j)] === '0') {
@@ -110,12 +103,10 @@ import { getSudoku } from './SudokuSolution';
        }
      }
      cell = cellsAvailable[Math.random() * cellsAvailable.length | 0];
- 
      let index = _getIndexOfCell(box, cell);
      tempInitArray[index] = solvedArray[index]
      boxCounts[box]++;
    }
- 
    return tempInitArray;
  }
  
@@ -123,21 +114,16 @@ import { getSudoku } from './SudokuSolution';
    let temporaryInitArray = nullArray.slice();
    let temporarySolvedArray = nullArray.slice();
    let sudoku = getSudoku();
- 
    let str = sudoku.generate(60);
- 
    [...str].forEach((value, index) => {
      temporaryInitArray[index] = value === '.'
                          ? '0'
                          : value;
    });
- 
    str = sudoku.solve(str);
    [...str].forEach((value, index) => {
      temporarySolvedArray[index] = value;
    });
- 
    temporaryInitArray = _generateUniqueSudoku(temporarySolvedArray, difficulty, e);
- 
    return [temporaryInitArray, temporarySolvedArray];
  }

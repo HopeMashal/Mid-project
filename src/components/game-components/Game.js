@@ -13,7 +13,6 @@ export const Game = ({userDetails,setUserDetails}) => {
         gameArray, setGameArray,
         difficulty, setDifficulty,
         setTimeGameStarted,
-        fastMode,
         cellSelected, setCellSelected,
         initArray, setInitArray,
         setWon } = useSudokuContext();
@@ -22,7 +21,7 @@ export const Game = ({userDetails,setUserDetails}) => {
   let [ overlay, setOverlay ] = useState(false);
   const copy = CopyData(userDetails);
 
-  function _createNewGame(e) {
+  function createNewGame(e) {
     let [ temporaryInitArray, temporarySolvedArray ] = getUniqueSudoku(difficulty, e);
 
     setInitArray(temporaryInitArray);
@@ -47,7 +46,7 @@ export const Game = ({userDetails,setUserDetails}) => {
       });
   }
 
-  function _isSolved(index, value) {
+  function isSolved(index, value) {
     if (gameArray.every((cell, cellIndex) => {
           if (cellIndex === index)
             return value === solvedArray[cellIndex];
@@ -59,7 +58,7 @@ export const Game = ({userDetails,setUserDetails}) => {
     return false;
   }
 
-  function _fillCell(index, value) {
+  function fillCell(index, value) {
     if (initArray[index] === '0') {
       let tempArray = gameArray.slice();
       let tempHistory = history.slice();
@@ -70,7 +69,7 @@ export const Game = ({userDetails,setUserDetails}) => {
       tempArray[index] = value;
       setGameArray(tempArray);
 
-      if (_isSolved(index, value)) {
+      if (isSolved(index, value)) {
         setOverlay(true);
         setWon(true);
         copy.Completed = copy.Completed + 1;
@@ -90,30 +89,28 @@ export const Game = ({userDetails,setUserDetails}) => {
     }
   }
 
-  function _userFillCell(index, value) {
-      _fillCell(index, value);
+  function userFillCell(index, value) {
+      fillCell(index, value);
   }
 
   function onClickNewGame() {
-    _createNewGame();
+    createNewGame();
   }
 
   function onClickCell(indexOfArray) {
-    if (fastMode && numberSelected !== '0') {
-      _userFillCell(indexOfArray, numberSelected);
+    if (numberSelected !== '0') {
+      userFillCell(indexOfArray, numberSelected);
     }
     setCellSelected(indexOfArray);
   }
 
   function onChangeDifficulty(e) {
     setDifficulty(e.target.value);
-    _createNewGame(e);
+    createNewGame(e);
   }
 
   function onClickNumber(number) {
-    if (fastMode) {
       setNumberSelected(number)
-    } 
   }
 
   function onClickUndo() {
@@ -128,13 +125,13 @@ export const Game = ({userDetails,setUserDetails}) => {
 
   function onClickErase() {
     if(cellSelected !== -1 && gameArray[cellSelected] !== '0') {
-      _fillCell(cellSelected, '0');
+      fillCell(cellSelected, '0');
     }
   }
 
   function onClickHint() {
     if (cellSelected !== -1) {
-      _fillCell(cellSelected, solvedArray[cellSelected]);
+      fillCell(cellSelected, solvedArray[cellSelected]);
     }
   }
 
@@ -143,12 +140,12 @@ export const Game = ({userDetails,setUserDetails}) => {
   }
 
   useEffect(() => {
-    _createNewGame();
+    createNewGame();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <>
+    <div>
       <div className={overlay?"container blur":"container"}>
         <div className="innercontainer">
           <GameSection
@@ -165,15 +162,15 @@ export const Game = ({userDetails,setUserDetails}) => {
         </div>
       </div>
       <div className= { overlay
-                        ? "overlay overlay--visible"
+                        ? "overlay overlay-visible"
                         : "overlay"
                       }
            onClick={onClickOverlay}
       >
-        <h2 className="overlay__text">
-          You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span>
+        <h2 className="overlay-text">
+          You solved it!
         </h2>
       </div>
-    </>
+    </div>
   );
 }

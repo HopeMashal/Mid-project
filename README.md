@@ -41,6 +41,7 @@ The focus point in my project is to give beginners an opportunity to learn Sudok
     - New Game
     - Undo
     - Erase
+    - Hint
 
   > **In general**
     - Mockapi
@@ -50,7 +51,8 @@ The focus point in my project is to give beginners an opportunity to learn Sudok
 ***
 
 - ## Features (**NICE TO HAVE**)
-  - 
+  - Challenges for every day
+  - Save the uncompleted game to complete it later
 
 ***
 

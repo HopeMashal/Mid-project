@@ -5,7 +5,7 @@
 }
 .card{
   background: linear-gradient(rgba(235, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
-  width:30vw;
+  width:384px;
   height: fit-content;
   padding: 10px;
   display: flex;
@@ -19,10 +19,13 @@ h2,h3,p{
   font-family: 'Verdana';
 }
 .profile-image img{
-  width:25vw;
-  height: 25vw;
+  width:320px;
+  height: 320px;
   border: none;
   border-radius: 50%;
+}
+.profile-data{
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 500px) {

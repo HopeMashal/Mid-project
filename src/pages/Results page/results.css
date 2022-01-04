@@ -4,14 +4,14 @@
   font-weight: bold;
 }
 .ResultsPage{
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 .card-container{
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 30px;
 }
 h1{
   text-align: center;

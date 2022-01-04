@@ -1,4 +1,3 @@
-import './App.css';
 import React,{ useState } from 'react';
 import {HashRouter,Route,Redirect } from 'react-router-dom';
 import Header from './components/navbar/navbar';

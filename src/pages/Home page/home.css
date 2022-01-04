@@ -12,8 +12,8 @@ h2,p{
 }
 .iframe-container {
   position: relative;
-  width: 50vw;
-  height: 28vw;
+  width: 650px;
+  height: 370px;
   overflow: hidden;
 }
 .iframe {
@@ -27,7 +27,7 @@ h2,p{
   border: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 680px) {
   .iframe-container {
     width: 90vw;
     height: 51vw;

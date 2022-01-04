@@ -10,7 +10,7 @@ const Header=({user,setUser})=>{
 	};
 	const closeMenu = () => {
 		setOpen(false);
-    document.querySelector('#checkbox_toggle').checked=open;
+    document.querySelector('#checkbox_toggle').checked=!open;
 	};
   const logout =() =>{
     setUser(false);
