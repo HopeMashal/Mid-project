@@ -266,7 +266,7 @@
     grid-template-columns: repeat(9, 1fr);
   }
   .number{
-    padding: 10px 0;
+    padding: 10px;
     font-size: 25px;
   }
 }
@@ -274,7 +274,7 @@
 @media screen and (max-width: 500px) {
   .number {
     font-size: 18px;
-    padding: 8px 0;
+    padding: 8px;
   }
   .game-cell{
     font-size: 18px;
@@ -291,7 +291,7 @@
 @media screen and (max-width: 420px) {
   .number {
     font-size: 16px;
-    padding: 4px 0;
+    padding: 4px;
   }
   .game-cell{
     font-size: 16px;

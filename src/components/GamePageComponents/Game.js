@@ -25,10 +25,10 @@ export const Game = ({userDetails,setUserDetails}) => {
   const copy = CopyData(userDetails);
 
   function createNewGame(e) {
-    let [ temporaryInitArray, temporarySolvedArray ] = getNewSudoku(difficulty, e);
-    setInitArray(temporaryInitArray);
-    setGameArray(temporaryInitArray);
-    setSolvedArray(temporarySolvedArray);
+    let [ InitialState, FinalState ] = getNewSudoku(difficulty, e);
+    setInitArray(InitialState);
+    setGameArray(InitialState);
+    setSolvedArray(FinalState);
     setNumberSelected('0');
     setTimeGameStarted(moment());
     setCellSelected(-1);
