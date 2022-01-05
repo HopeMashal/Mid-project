@@ -4,7 +4,6 @@ import { useSudokuContext } from './SudokuContext';
 //Difficulty Select Component
 export const Difficulty = (props) => {
   let { difficulty } = useSudokuContext();
-
   return (
     <div className="difficulty">
       <span className="difficulty-text">Difficulty:&nbsp;&nbsp;</span>

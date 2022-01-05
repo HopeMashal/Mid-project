@@ -4,9 +4,8 @@ import { useSudokuContext } from './SudokuContext';
 // Set Numbers Components and check the selected number
 export const Numbers = ({ onClickNumber }) => {
   let { numberSelected } = useSudokuContext();
-
   return (
-    <div className="numbers">
+    <div className="NumberSide">
       {
         [1,2,3,4,5,6,7,8,9].map((number) => {
           if (numberSelected === number.toString()) {

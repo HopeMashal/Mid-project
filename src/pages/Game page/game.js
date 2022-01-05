@@ -1,7 +1,7 @@
 import React from "react";
-import { Game } from '../../components/game-components/Game';
+import { Game } from '../../components/GamePageComponents/Game';
 import './game.css';
-import { SudokuProvider } from '../../components/game-components/SudokuContext';
+import { SudokuProvider } from '../../components/GamePageComponents/SudokuContext';
 
 const GamePage=({userDetails,setUserDetails})=>{
   return(

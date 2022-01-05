@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import { GameSection } from './GameSection';
-import { StatusSection } from './StatusSection';
-import { getUniqueSudoku } from './UniqueSolution';
+import { GameBoard } from './GameBoard';
+import { Numbers } from './Number';
+import { getNewSudoku } from './Sudoku';
+import { Tool } from './Tools';
+import { Timer } from './Timer';
+import { Difficulty } from './Difficulty';
 import { useSudokuContext } from './SudokuContext';
 import CopyData from '../CopyData';
 import fetchData from '../../api/fetchdata';
@@ -22,8 +25,7 @@ export const Game = ({userDetails,setUserDetails}) => {
   const copy = CopyData(userDetails);
 
   function createNewGame(e) {
-    let [ temporaryInitArray, temporarySolvedArray ] = getUniqueSudoku(difficulty, e);
-
+    let [ temporaryInitArray, temporarySolvedArray ] = getNewSudoku(difficulty, e);
     setInitArray(temporaryInitArray);
     setGameArray(temporaryInitArray);
     setSolvedArray(temporarySolvedArray);
@@ -45,7 +47,6 @@ export const Game = ({userDetails,setUserDetails}) => {
         });
       });
   }
-
   function isSolved(index, value) {
     if (gameArray.every((cell, cellIndex) => {
           if (cellIndex === index)
@@ -57,18 +58,14 @@ export const Game = ({userDetails,setUserDetails}) => {
     }
     return false;
   }
-
   function fillCell(index, value) {
     if (initArray[index] === '0') {
       let tempArray = gameArray.slice();
       let tempHistory = history.slice();
-
       tempHistory.push(gameArray.slice());
       setHistory(tempHistory);
-
       tempArray[index] = value;
       setGameArray(tempArray);
-
       if (isSolved(index, value)) {
         setOverlay(true);
         setWon(true);
@@ -88,31 +85,25 @@ export const Game = ({userDetails,setUserDetails}) => {
       }
     }
   }
-
   function userFillCell(index, value) {
       fillCell(index, value);
   }
-
   function onClickNewGame() {
     createNewGame();
   }
-
   function onClickCell(indexOfArray) {
     if (numberSelected !== '0') {
       userFillCell(indexOfArray, numberSelected);
     }
     setCellSelected(indexOfArray);
   }
-
   function onChangeDifficulty(e) {
     setDifficulty(e.target.value);
     createNewGame(e);
   }
-
   function onClickNumber(number) {
       setNumberSelected(number)
   }
-
   function onClickUndo() {
     if(history.length) {
       let tempHistory = history.slice();
@@ -122,51 +113,59 @@ export const Game = ({userDetails,setUserDetails}) => {
         setGameArray(tempArray);
     }
   }
-
   function onClickErase() {
     if(cellSelected !== -1 && gameArray[cellSelected] !== '0') {
       fillCell(cellSelected, '0');
     }
   }
-
   function onClickHint() {
     if (cellSelected !== -1) {
       fillCell(cellSelected, solvedArray[cellSelected]);
     }
   }
-
   function onClickOverlay() {
     setOverlay(false);
   }
-
   useEffect(() => {
     createNewGame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div>
-      <div className={overlay?"container blur":"container"}>
-        <div className="innercontainer">
-          <GameSection
-            onClick={(indexOfArray) => onClickCell(indexOfArray)}
-          />
-          <StatusSection
-            onClickNumber={(number) => onClickNumber(number)}
-            onChange={(e) => onChangeDifficulty(e)}
-            onClickUndo={onClickUndo}
-            onClickErase={onClickErase}
-            onClickHint={onClickHint}
-            onClickNewGame={onClickNewGame}
-          />
+      <div className='game-container'>
+        <div className='inner-container'>
+          <div className='top-container'>
+            <div className='difficulty-container'>
+              <Difficulty
+                onChange={(e) => onChangeDifficulty(e)}
+              />
+            </div>
+            <div className='timer-container'>
+              <Timer/>
+            </div>
+          </div>
+          <div className='bottom-container'>
+            <div className='left-container'>
+              <GameBoard 
+                onClick={(indexOfArray) => onClickCell(indexOfArray)}
+              />
+            </div>
+            <div className='right-container'>
+              <button className='NewGameBtn' onClick={onClickNewGame}>New Game</button>
+              <Tool 
+                onClickUndo={onClickUndo}
+                onClickErase={onClickErase}
+                onClickHint={onClickHint}
+              />
+              <Numbers 
+                onClickNumber={(number) => onClickNumber(number)}
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <div className= { overlay
-                        ? "overlay overlay-visible"
-                        : "overlay"
-                      }
-           onClick={onClickOverlay}
-      >
+      <div className= { overlay? "overlay overlay-visible": "overlay"} onClick={onClickOverlay}>
         <h2 className="overlay-text">
           You solved it!
         </h2>

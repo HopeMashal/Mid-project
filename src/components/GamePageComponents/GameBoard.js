@@ -1,21 +1,19 @@
 import React from 'react';
 import { useSudokuContext } from './SudokuContext';
 
-//set the game section => game board(Table)
-export const GameSection = (props) => {
+//set the game board 
+export const GameBoard = (props) => {
   const rows = [0,1,2,3,4,5,6,7,8];
   let { numberSelected,
         gameArray,
         cellSelected,
         initArray } = useSudokuContext();
-
-  function checkCell(row, column) {//check if the cell value is equal the selected number
+  function checkCellValue(row, column) {//check if the cell value is equal the selected number
       if (numberSelected === gameArray[row * 9 + column]) {
         return true;
       }
       return false;
   }
-
   function selectedCell(indexOfArray, value, highlight) {
     if (value !== '0') {//The cell is not empty
       if (initArray[indexOfArray] === '0') {//If the initial value of cells is equal zero => The user filled the cell
@@ -33,8 +31,6 @@ export const GameSection = (props) => {
       )
     }
   }
-
-
   function unselectedCell(indexOfArray, value) {
     if (value !== '0') {
       if (initArray[indexOfArray] === '0') {
@@ -52,7 +48,6 @@ export const GameSection = (props) => {
       )
     }
   }
-
   return (
     <section className="game">
       <table className="game-board">
@@ -65,11 +60,10 @@ export const GameSection = (props) => {
                     rows.map((column) => {
                       const indexOfArray = row * 9 + column;
                       const value = gameArray[indexOfArray];
-
                       if (cellSelected === indexOfArray) { //Shade the selected cell 
                         return selectedCell(indexOfArray, value, 'highlight');
                       }
-                      if (numberSelected !== '0' && checkCell(row, column)) {//If the cell value is equal the selected number => change the cell color
+                      if (numberSelected !== '0' && checkCellValue(row, column)) {//If the cell value is equal the selected number => change the cell color
                         return selectedCell(indexOfArray, value, '');
                       } else {
                         return unselectedCell(indexOfArray, value);
